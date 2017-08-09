@@ -1,0 +1,21 @@
+React es una librería creada por Facebook (2013 lliberada), para crear las UI de las aplicaciones web basadas en componentes.
+
+Características:
+
+1. Los datos fluyen en un sentido desde el primer al último componente.
+2. Usa un algoritmo para detectar cambios y solo aplicar esas modificaciones a la UI. (Virtual DOM). No genera de nuevo todo el 
+html sino que aplica pequeños cambios. Ahora tenemos un nuevo estado de la aplicación (cómo se tiene que ver ahora).
+3. Utiliza JS para crear componentes pero para facilitar esto extendieron el lenguaje creando JSX. (JSX es una extensión de javascript que 
+permite usar html en el código JS).
+(Todo React es javascript y éste se usa para crear componentes).
+4. Permite generar cualquier tipo de UI como web, mobile, canvas, televisores, terminales, etc.
+5. Propone usar programación funcional y manejar estructuras de datos inmutables. (Se crea un nuevo listado de datos cada vez que cambia
+el estado por lo que es más fácil volve al estado anterior).
+6. Se puede usar junto a Angular o Ember.
+
+¿Qué es y cómo funciona el Virtual DOM?
+
+1. El virtual DOM es una representación de todos los objetos que componen la UI usando un objeto de JS.
+2. Todos los componentes creados por React deben comenzar con mayúscula. Los elementos nativos de HTML están en minúscula 
+por lo podremos facilmente identificarlos.
+3. El algoritmo de React permite que se hagan cambios de manera efectiva en el DOM. Es un algoritmo de diferencias de lo que hay y lo que va a venir luego.
