@@ -19,3 +19,14 @@ el estado por lo que es más fácil volve al estado anterior).
 2. Todos los componentes creados por React deben comenzar con mayúscula. Los elementos nativos de HTML están en minúscula 
 por lo podremos facilmente identificarlos.
 3. El algoritmo de React permite que se hagan cambios de manera efectiva en el DOM. Es un algoritmo de diferencias de lo que hay y lo que va a venir luego.
+
+Creación de componentes:
+
+Debemos pensar nuestra aplicación como un conjunto de componentes, que siguen la filosofía de separación de responsabilidades.
+En los componentes de react, todo es JS.
+
+Para crear un componente podemos:
+1. Crear un componente puro con una función
+2. Usar class y extender desde React.Component (Tenemos más funcionalidad y tenemos acceso a los estados)
+3. Usar class y extender desde React.PureComponent
+4. Usar React.createClass()
