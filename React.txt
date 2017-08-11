@@ -30,3 +30,32 @@ Para crear un componente podemos:
 2. Usar class y extender desde React.Component (Tenemos más funcionalidad y tenemos acceso a los estados)
 3. Usar class y extender desde React.PureComponent
 4. Usar React.createClass()
+
+El método render es obligatorio para todos los componentes hechos con clases.
+Al usar clases accedemos directamente al props con this.props.
+Si hay que hacer un bind es mejor hacerlo en el contructor del componente para evitar problemas de rendimiento.
+
+Un PureComponent valida los props y el state y solo renderiza cuando cambia el state. No se debe usar mucho ya que 
+si un PureComponent tiene dentro otro componente que no es Pure y este cambia, el PureComponent no se entera y 
+por lo tanto no renderiza de nuevo. Se usan PureComponent en los últimos nodos. 
+
+Se recomienda crear componentes bien como funciones puras o como clases.
+
+Ciclo de vida de un componente:
+
+Todos los componentes tienen momento.
+
+Creación:
+Constructor() ? recibe los props, definir estado
+conponentWillMount() ? Permite ejecutar código antes de que el componente se renderice. Aún no esta el DOM, no se deben hacer peticiones sincronas
+render() ? dibujamos el dom
+componentDidMount ? Después que la aplicación se monta
+
+Actualización:
+componentWillReceiveProps(nextProps): comprobar si los props han cambiado.
+shouldComponentUpdate(nextProps, nextState) ? prueba si es necesario actualizar el componente
+componentWillUpdate(nextProps, nextState) ? el componente sera montado
+render() ? Renderiza la aplicación
+componenteDidUpdate(prevProps, prevstate) ? podemos volver a asignar algo
+Destrucción:
+componentWillUnmount() ? Limpiar eventos o eliminar algunas cosas
