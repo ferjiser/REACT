@@ -1,43 +1,43 @@
-React es una librería creada por Facebook (2013 lliberada), para crear las UI de las aplicaciones web basadas en componentes.
+React es una librerï¿½a creada por Facebook (2013 lliberada), para crear las UI de las aplicaciones web basadas en componentes.
 
-Características:
+Caracterï¿½sticas:
 
-1. Los datos fluyen en un sentido desde el primer al último componente.
+1. Los datos fluyen en un sentido desde el primer al ï¿½ltimo componente.
 2. Usa un algoritmo para detectar cambios y solo aplicar esas modificaciones a la UI. (Virtual DOM). No genera de nuevo todo el 
-html sino que aplica pequeños cambios. Ahora tenemos un nuevo estado de la aplicación (cómo se tiene que ver ahora).
-3. Utiliza JS para crear componentes pero para facilitar esto extendieron el lenguaje creando JSX. (JSX es una extensión de javascript que 
-permite usar html en el código JS).
-(Todo React es javascript y éste se usa para crear componentes).
+html sino que aplica pequeï¿½os cambios. Ahora tenemos un nuevo estado de la aplicaciï¿½n (cï¿½mo se tiene que ver ahora).
+3. Utiliza JS para crear componentes pero para facilitar esto extendieron el lenguaje creando JSX. (JSX es una extensiï¿½n de javascript que 
+permite usar html en el cï¿½digo JS).
+(Todo React es javascript y ï¿½ste se usa para crear componentes).
 4. Permite generar cualquier tipo de UI como web, mobile, canvas, televisores, terminales, etc.
-5. Propone usar programación funcional y manejar estructuras de datos inmutables. (Se crea un nuevo listado de datos cada vez que cambia
-el estado por lo que es más fácil volve al estado anterior).
+5. Propone usar programaciï¿½n funcional y manejar estructuras de datos inmutables. (Se crea un nuevo listado de datos cada vez que cambia
+el estado por lo que es mï¿½s fï¿½cil volve al estado anterior).
 6. Se puede usar junto a Angular o Ember.
 
-¿Qué es y cómo funciona el Virtual DOM?
+ï¿½Quï¿½ es y cï¿½mo funciona el Virtual DOM?
 
-1. El virtual DOM es una representación de todos los objetos que componen la UI usando un objeto de JS.
-2. Todos los componentes creados por React deben comenzar con mayúscula. Los elementos nativos de HTML están en minúscula 
+1. El virtual DOM es una representaciï¿½n de todos los objetos que componen la UI usando un objeto de JS.
+2. Todos los componentes creados por React deben comenzar con mayï¿½scula. Los elementos nativos de HTML estï¿½n en minï¿½scula 
 por lo podremos facilmente identificarlos.
 3. El algoritmo de React permite que se hagan cambios de manera efectiva en el DOM. Es un algoritmo de diferencias de lo que hay y lo que va a venir luego.
 
-Creación de componentes:
+Creaciï¿½n de componentes:
 
-Debemos pensar nuestra aplicación como un conjunto de componentes, que siguen la filosofía de separación de responsabilidades.
+Debemos pensar nuestra aplicaciï¿½n como un conjunto de componentes, que siguen la filosofï¿½a de separaciï¿½n de responsabilidades.
 En los componentes de react, todo es JS.
 
 Para crear un componente podemos:
-1. Crear un componente puro con una función
-2. Usar class y extender desde React.Component (Tenemos más funcionalidad y tenemos acceso a los estados)
+1. Crear un componente puro con una funciï¿½n
+2. Usar class y extender desde React.Component (Tenemos mï¿½s funcionalidad y tenemos acceso a los estados)
 3. Usar class y extender desde React.PureComponent
 4. Usar React.createClass()
 
-El método render es obligatorio para todos los componentes hechos con clases.
+El mï¿½todo render es obligatorio para todos los componentes hechos con clases.
 Al usar clases accedemos directamente al props con this.props.
 Si hay que hacer un bind es mejor hacerlo en el contructor del componente para evitar problemas de rendimiento.
 
 Un PureComponent valida los props y el state y solo renderiza cuando cambia el state. No se debe usar mucho ya que 
 si un PureComponent tiene dentro otro componente que no es Pure y este cambia, el PureComponent no se entera y 
-por lo tanto no renderiza de nuevo. Se usan PureComponent en los últimos nodos. 
+por lo tanto no renderiza de nuevo. Se usan PureComponent en los ï¿½ltimos nodos. 
 
 Se recomienda crear componentes bien como funciones puras o como clases.
 
@@ -45,17 +45,23 @@ Ciclo de vida de un componente:
 
 Todos los componentes tienen momento.
 
-Creación:
-Constructor() ? recibe los props, definir estado
-conponentWillMount() ? Permite ejecutar código antes de que el componente se renderice. Aún no esta el DOM, no se deben hacer peticiones sincronas
-render() ? dibujamos el dom
-componentDidMount ? Después que la aplicación se monta
+FASES DEL CICLO DE VIDA
 
-Actualización:
+MONTADO:
+Constructor(): recibe los props, definir estado
+conponentWillMount(): Permite ejecutar codigo antes de que el componente se renderice. Aun no esta el DOM, no se deben hacer peticiones sincronas
+render(): dibujamos el dom
+componentDidMount: Despues que la aplicacion se monta. Es el sitio para hacer peticiones HTTP. Con la respuesta se puede modificar el estado 
+y si esto ocurre en este metodo el componente se vuelve a renderizar.
+
+ACTUALIZACION:
 componentWillReceiveProps(nextProps): comprobar si los props han cambiado.
-shouldComponentUpdate(nextProps, nextState) ? prueba si es necesario actualizar el componente
-componentWillUpdate(nextProps, nextState) ? el componente sera montado
-render() ? Renderiza la aplicación
-componenteDidUpdate(prevProps, prevstate) ? podemos volver a asignar algo
-Destrucción:
-componentWillUnmount() ? Limpiar eventos o eliminar algunas cosas
+shouldComponentUpdate(nextProps, nextState): prueba si es necesario actualizar el componente
+componentWillUpdate(nextProps, nextState): el componente sera montado
+render(): Renderiza la aplicacion
+componenteDidUpdate(prevProps, prevstate): podemos volver a asignar algo
+
+DESMONTADO:
+componentWillUnmount(): Limpiar eventos o eliminar algunas cosas
+
+
