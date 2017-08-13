@@ -69,4 +69,8 @@ Contexto de la aplicación
 El contexto es una funcionalidad experimental.
 Manejar datos globales es una mala practica.
 
+Componentes de Alto Orden (HOC) y Mixins
+Los mixins o componentes de alto orden nos permite reutilizar funcionalidad entre varios componentes.
+Los mixin siempre se crean con createClass.
+
 
