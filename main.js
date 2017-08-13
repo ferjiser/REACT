@@ -1,15 +1,19 @@
-function PureComponent(props) {
+function PureComponent(props, context) {
 
     const name = props.name;
 
     return (
         <div>
             <h1 id="Title">Hola {name}
-                {props.count}</h1>
+                {context.count}</h1>
             <button type="button" onClick={props.onClick}>Click Me!</button>
         </div>
     );
 }
+
+PureComponent.contextTypes = {
+    count: React.PropTypes.number
+};
 
 class ContainerComponent extends React.Component {
 
@@ -25,6 +29,10 @@ class ContainerComponent extends React.Component {
         this.handleClick = this
             .handleClick
             .bind(this);
+    }
+
+    getChildContext() {
+        return {count: this.state.count}
     }
 
     componentWillMount() {
@@ -70,6 +78,10 @@ class ContainerComponent extends React.Component {
     }
 
 }
+
+ContainerComponent.childContextTypes = {
+    count: React.PropTypes.number
+};
 
 ReactDOM.render(
     <ContainerComponent name="Componente"/>, document.getElementById('app'));

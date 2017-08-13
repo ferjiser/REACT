@@ -64,4 +64,9 @@ componenteDidUpdate(prevProps, prevstate): podemos volver a asignar algo
 DESMONTADO:
 componentWillUnmount(): Limpiar eventos o eliminar algunas cosas
 
+Contexto de la aplicación
+
+El contexto es una funcionalidad experimental.
+Manejar datos globales es una mala practica.
+
 
