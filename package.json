@@ -6,7 +6,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack -w",
         "start": "nodemon built/server/index.js",
-        "sfs": "serve built/statics --port 3001 --cache 0"
+        "sfs": "serve built/statics --port 3001 --cache 0",
+        "dbase": "json-server --watch db.json --port 3002"
     },
     "repository": {
         "type": "git",
@@ -35,6 +36,7 @@
         "babel-preset-latest-minimal": "^1.1.2",
         "babel-preset-react": "^6.24.1",
         "json-loader": "^0.5.7",
+        "json-server": "^0.12.0",
         "nodemon": "^1.11.0",
         "webpack": "^3.5.4"
     }

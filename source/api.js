@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-const baseUrl = 'http://jsonplaceholder.typicode.com';
+const baseUrl = 'http://localhost:3002';
 
 const api = {
     posts: {
