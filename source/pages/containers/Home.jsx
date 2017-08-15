@@ -16,6 +16,7 @@ class Home extends Component {
     }
 
     async componentDidMount() {
+        console.log('props Home', this.props);
         const posts = await api
             .posts
             .getList(this.state.page);
@@ -25,6 +26,7 @@ class Home extends Component {
             page: this.state.page + 1,
             loading: false
         })
+        console.log('state Home', this.state);
     }
 
     render() {
