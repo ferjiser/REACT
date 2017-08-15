@@ -11372,7 +11372,7 @@ class Post extends _react.Component {
         super(props);
         this.state = {
             loading: true,
-            user: {},
+            user: props.user || null,
             comments: []
         };
     }
@@ -11382,8 +11382,12 @@ class Post extends _react.Component {
 
         return _asyncToGenerator(function* () {
             console.log('props Post', _this.props);
-            const [user, comments] = yield Promise.all([_api2.default.users.getSingle(_this.props.userId), _api2.default.posts.getComments(_this.props.id)]);
-            _this.setState({ loading: false, user, comments });
+            const [user, comments] = yield Promise.all([!_this.state.user ? _api2.default.users.getSingle(_this.props.userId) : Promise.resolve(null), _api2.default.posts.getComments(_this.props.id)]);
+            _this.setState({
+                loading: false,
+                user: user || _this.state.user,
+                comments
+            });
             console.log('state Post', _this.state);
         })();
     }
@@ -26652,7 +26656,7 @@ class Profile extends _react.Component {
             _react2.default.createElement(
                 'section',
                 null,
-                this.state.posts.map(post => _react2.default.createElement(_Post2.default, _extends({ key: post.id }, post)))
+                this.state.posts.map(post => _react2.default.createElement(_Post2.default, _extends({ key: post.id }, post, { user: this.state.user })))
             )
         );
     }

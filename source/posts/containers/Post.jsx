@@ -10,7 +10,7 @@ class Post extends Component {
         super(props);
         this.state = {
             loading: true,
-            user: {},
+            user: props.user || null,
             comments: []
         };
     }
@@ -19,15 +19,21 @@ class Post extends Component {
         console.log('props Post', this.props);
         const [user,
             comments] = await Promise.all([
-            api
-                .users
-                .getSingle(this.props.userId),
+            !this.state.user
+                ? api
+                    .users
+                    .getSingle(this.props.userId)
+                : Promise.resolve(null),
             api
                 .posts
                 .getComments(this.props.id)
 
         ])
-        this.setState({loading: false, user, comments});
+        this.setState({
+            loading: false,
+            user: user || this.state.user,
+            comments
+        });
         console.log('state Post', this.state);
     }
 

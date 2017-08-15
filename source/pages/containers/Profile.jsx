@@ -53,7 +53,7 @@ class Profile extends Component {
                     {this
                         .state
                         .posts
-                        .map(post => <Post key={post.id} {...post}/>)}
+                        .map(post => <Post key={post.id} {...post} user={this.state.user}/>)}
                 </section>
             </section>
         )
