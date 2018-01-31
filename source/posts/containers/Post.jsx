@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import api from '../../api.js';
 import {Link} from 'react-router-dom';
+import styles from './Post.css'
 
 class Post extends Component {
 
@@ -50,15 +51,15 @@ class Post extends Component {
             numCommentString = ` Hay ${this.state.comments.length} comentarios`;
         }
         return (
-            <article id={`post-${this.props.id}`}>
-                <Link to={`/post/${this.props.id}`}>
-                    <h2>{this.props.title}</h2>
-                </Link>
-                <p>{this.props.body}</p>
+            <article id={`post-${this.props.id}`} className={styles.post}>
+                <h2 className={styles.title}>
+                    <Link to={`/post/${this.props.id}`}>{this.props.title}</Link>
+                </h2>
+                <p className={styles.body}>{this.props.body}</p>
                 {!this.state.loading
-                    ? <div>
-                            <Link to={`/user/${this.state.user.id}`}>{this.state.user.name}</Link>
-                            <span>{numCommentString}</span>
+                    ? <div className={styles.meta}>
+                            <Link to={`/user/${this.state.user.id}`} className={styles.user}>{this.state.user.name}</Link>
+                            <span className={styles.comments}>{numCommentString}</span>
                         </div>
                     : null}
             </article>

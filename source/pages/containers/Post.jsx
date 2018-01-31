@@ -7,6 +7,8 @@ import Comment from '../../comments/components/Comment.jsx';
 
 import api from '../../api.js';
 
+import styles from './Page.css'
+
 class Post extends Component {
 
     constructor(props) {
@@ -44,13 +46,13 @@ class Post extends Component {
             return <Loading/>
         }
         return (
-            <section name="post">
+            <section name="post" className={styles.main}>
                 <PostBody
                     {...this.state.post}
                     user={this.state.user}
                     comments={this.state.comments}/>
                 <br/>
-                <section>
+                <section className={styles.list}>
                     {this
                         .state
                         .comments

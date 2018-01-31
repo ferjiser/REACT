@@ -1,13 +1,15 @@
 import React from 'react';
 
+import styles from './Comment.css'
+
 function Comment(props) {
     return (
-        <article id={`comment-${props.id}`}>
-            <div>
+        <article id={`comment-${props.id}`} className={styles.comment}>
+            <div className={styles.meta}>
                 By:
                 <a href={`mailto:${props.email}`}>{props.name}</a>
             </div>
-            <p>{props.body}</p>
+            <p className={styles.body}>{props.body}</p>
         </article>
     )
 }

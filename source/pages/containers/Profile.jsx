@@ -5,6 +5,8 @@ import Post from '../../posts/containers/Post.jsx';
 import Loading from '../../shared/components/Loading.jsx';
 import api from '../../api.js';
 
+import styles from './Page.css'
+
 class Profile extends Component {
 
     constructor(props) {
@@ -37,23 +39,23 @@ class Profile extends Component {
             return <Loading/>
         }
         return (
-            <section name="profile">
+            <section name="profile" className={styles.main}>
                 <h2>Profile of {this.state.user.name}</h2>
                 {this.state.user.email
-                    ? <fieldset>
+                    ? <fieldset className={styles.field}>
                             <legend>Basic info</legend>
                             <input type="email" value={this.state.user.email} disabled/>
                         </fieldset>
                     : null}
                 {this.state.user.address
-                    ? <fieldset>
+                    ? <fieldset className={styles.field}>
                             <legend>Address</legend>
                             <address>
                                 {this.state.user.address.street}<br/> {this.state.user.address.suite}<br/> {this.state.user.address.city}<br/> {this.state.user.address.zipcode}<br/>
                             </address>
                         </fieldset>
                     : null}
-                <section>
+                <section className={styles.list}>
                     {this
                         .state
                         .posts

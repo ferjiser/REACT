@@ -6,10 +6,12 @@ import Post from './Post.jsx';
 import Profile from './Profile.jsx';
 import Gallery from './Gallery.jsx';
 import Error404 from './Error404.jsx';
+import Header from '../../shared/components/Header.jsx';
 
 function Pages() {
     return (
         <main role="application">
+            <Header/>
             <Switch>
 
                 <Route path="/" exact component={Home}/>{/* Lista de artículos */}
